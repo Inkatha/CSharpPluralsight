@@ -1,0 +1,8 @@
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\bin\Debug\Grades.Tests.dll
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\bin\Debug\Grades.Tests.pdb
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\bin\Debug\Grades.exe
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\bin\Debug\Grades.pdb
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\obj\Debug\Grades.Tests.csprojResolveAssemblyReference.cache
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\obj\Debug\Grades.Tests.dll
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades.Tests\obj\Debug\Grades.Tests.pdb

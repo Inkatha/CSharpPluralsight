@@ -1,0 +1,6 @@
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\bin\Debug\Grades.exe.config
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\bin\Debug\Grades.exe
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\bin\Debug\Grades.pdb
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\obj\Debug\Grades.exe
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\obj\Debug\Grades.pdb
+C:\dev\pluralsight\CSharpFundamentals\Grades\Grades\obj\Debug\Grades.csprojResolveAssemblyReference.cache

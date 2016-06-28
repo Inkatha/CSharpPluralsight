@@ -1,0 +1,6 @@
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\bin\Debug\Hello.exe.config
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\bin\Debug\Hello.exe
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\bin\Debug\Hello.pdb
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\obj\Debug\Hello.csprojResolveAssemblyReference.cache
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\obj\Debug\Hello.exe
+C:\dev\pluralsight\CSharpFundamentals\Hello\Hello\obj\Debug\Hello.pdb
