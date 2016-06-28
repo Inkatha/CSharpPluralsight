@@ -8,8 +8,54 @@ using System.Threading.Tasks;
 namespace Grades.Tests.Types
 {
     [TestClass]
-    public class ReferenceTypeTests
+    public class TypeTests
     {
+        [TestMethod]
+        public void UppercaseAString()
+        {
+            string name = "scott";
+            name = name.ToUpper();
+
+            Assert.AreEqual("SCOTT", name);
+        }
+
+        [TestMethod]
+        public void AddDaysToDateTime()
+        {
+            DateTime date = new DateTime(2016, 6, 28);
+            date.AddDays(1);
+
+            Assert.AreEqual(28, date.Day);
+        }
+
+        [TestMethod]
+        public void ValueTypesPassByValue()
+        {
+            int x = 46;
+            IncrementNumber(x);
+            Assert.AreEqual(46, x);
+        }
+
+        private void IncrementNumber(int number)
+        {
+            number += 1;
+        }
+
+        [TestMethod]
+        public void ReferenceTypesPassByValue()
+        {
+            GradeBook book1 = new GradeBook();
+            GradeBook book2 = book1;
+
+            GiveBookAName(book2);
+            Assert.AreEqual("A Gradebook", book1.Name);
+        }
+
+        private void GiveBookAName(GradeBook book)
+        {
+            book.Name = "A Gradebook";
+        }
+
         [TestMethod]
         public void StringComparisons()
         {
