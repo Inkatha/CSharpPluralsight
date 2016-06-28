@@ -11,8 +11,10 @@ namespace Grades
         static void Main(string[] args)
         {
             GradeBook book = new GradeBook();
-            book.Name = "Malik's Gradebook";
-            book.Name = "";
+            book.NameChanged += OnNameChanged;
+
+            book.Name = "Scott's Gradebook";
+            book.Name = "Gradebook";
             book.AddGrade(91);
             book.AddGrade(85.4f);
             book.AddGrade(75);
@@ -31,6 +33,11 @@ namespace Grades
         static void WriteResult(string description, float result)
         {
             Console.WriteLine($"{description}: {result}");
+        }
+
+        static void OnNameChanged(object sender, NameChangedEventArgs args)
+        {
+            Console.WriteLine($"Gradebook changing name from {args.ExistingName} to {args.NewName}");
         }
     }
 }
