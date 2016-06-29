@@ -11,11 +11,17 @@ namespace Grades
     {
         static void Main(string[] args)
         {
-            GradeBook book = new GradeBook();
+            GradeBook book = CreateGradeBook();
+
             GetBookName(book);
             AddGrades(book);
             WriteToFile(book);
             DisplayResults(book);
+        }
+
+        private static GradeBook CreateGradeBook()
+        {
+            return new ThrowAwayGradeBook();
         }
 
         private static void DisplayResults(GradeBook book)

@@ -9,9 +9,7 @@ namespace Grades.Tests
         [TestMethod]
         public void ComputeHighestGrade()
         {
-            GradeBook book = new GradeBook();
-            book.AddGrade(90);
-            book.AddGrade(0);
+            GradeBook book = InitializeGradeBook();
 
             GradeBookStatistics result = book.ComputeStatistics();
             Assert.AreEqual(90, result.HighestGrade);
@@ -20,9 +18,7 @@ namespace Grades.Tests
         [TestMethod]
         public void ComputeLowestGrade()
         {
-            GradeBook book = new GradeBook();
-            book.AddGrade(90);
-            book.AddGrade(0);
+            GradeBook book = InitializeGradeBook();
 
             GradeBookStatistics result = book.ComputeStatistics();
             Assert.AreEqual(0, result.LowestGrade);
@@ -31,13 +27,18 @@ namespace Grades.Tests
         [TestMethod]
         public void ComputeAverageGrade()
         {
-            GradeBook book = new GradeBook();
-            book.AddGrade(90);
-            book.AddGrade(0);
+            GradeBook book = InitializeGradeBook();
 
             GradeBookStatistics result = book.ComputeStatistics();
             Assert.AreEqual(45, result.AverageGrade);
         }
 
+        private static GradeBook InitializeGradeBook()
+        {
+            GradeBook book = new GradeBook();
+            book.AddGrade(90);
+            book.AddGrade(0);
+            return book;
+        }
     }
 }
