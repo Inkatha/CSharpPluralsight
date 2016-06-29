@@ -11,8 +11,11 @@ namespace Grades
         static void Main(string[] args)
         {
             GradeBook book = new GradeBook();
-
             book.AddGrade(91);
+            book.AddGrade(75);
+            book.AddGrade(84);
+
+            book.WriteGrades(Console.Out);
 
             GradeBookStatistics stats = book.ComputeStatistics();
             WriteResult("Average", stats.AverageGrade);
