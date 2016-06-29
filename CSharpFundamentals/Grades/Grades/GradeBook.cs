@@ -27,7 +27,7 @@ namespace Grades
             {
                 if (String.IsNullOrEmpty(value))
                 {
-                    throw new ArgumentException("GradeBook name cannot be null or empty.");
+                    throw new ArgumentException("The gradebooks name cannot be empty.");
                 }
 
                 if (_name != value)
@@ -35,7 +35,7 @@ namespace Grades
                     NameChangedEventArgs args = new NameChangedEventArgs();
                     args.ExistingName = _name;
                     args.NewName = value;
-                    NameChanged(this, args);
+                    NameChanged?.Invoke(this, args);
                 }
                 _name = value;
             }
