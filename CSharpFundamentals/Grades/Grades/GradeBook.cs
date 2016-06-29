@@ -46,8 +46,6 @@ namespace Grades
         public GradeBookStatistics ComputeStatistics()
         {
             GradeBookStatistics stats = new GradeBookStatistics();
-            stats.HighestGrade = 0;
-            stats.LowestGrade = float.MaxValue;
             float sum = 0;
 
             foreach (float grade in grades)

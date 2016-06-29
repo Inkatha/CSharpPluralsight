@@ -57,16 +57,6 @@ namespace Grades.Tests.Types
             number += 1;
         }
 
-        [TestMethod]
-        public void ReferenceTypesPassByValue()
-        {
-            GradeBook book1 = new GradeBook();
-            GradeBook book2 = book1;
-
-            GiveBookAName(book2);
-            Assert.AreEqual("A Gradebook", book1.Name);
-        }
-
         private void GiveBookAName(GradeBook book)
         {
             book.Name = "A Gradebook";
@@ -92,16 +82,6 @@ namespace Grades.Tests.Types
             x1 = 4;
 
             Assert.AreNotEqual(x1, x2);
-        }
-
-        [TestMethod]
-        public void GradeBookVariablesHoldAReference()
-        {
-            GradeBook book1 = new GradeBook();
-            GradeBook book2 = book1;
-            book1.Name = "This book";
-
-            Assert.AreEqual(book1.Name, book2.Name);
         }
     }
 }

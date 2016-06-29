@@ -38,5 +38,6 @@ namespace Grades.Tests
             GradeBookStatistics result = book.ComputeStatistics();
             Assert.AreEqual(45, result.AverageGrade);
         }
+
     }
 }
