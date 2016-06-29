@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -26,7 +27,7 @@ namespace Grades
         {
             GradeBookStatistics stats = new GradeBookStatistics();
             float sum = 0;
-
+             
             foreach (float grade in grades)
             {
                 stats.HighestGrade = Math.Max(grade, stats.HighestGrade);
@@ -34,9 +35,15 @@ namespace Grades
                 sum += grade;
             }
             stats.AverageGrade = sum / grades.Count;
-
+            
             return stats;
         }
+
+        public override IEnumerator GetEnumerator()
+        {
+            return grades.GetEnumerator();
+        }
+
         public override void AddGrade(float grade)
         {
             grades.Add(grade);
