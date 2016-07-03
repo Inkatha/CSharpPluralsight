@@ -213,6 +213,10 @@
     <Compile Include="Migrations\201607031934037_OverrideConventionsForGigsAndGenres.Designer.cs">
       <DependentUpon>201607031934037_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201607031945064_PopulateGenresTable.cs" />
+    <Compile Include="Migrations\201607031945064_PopulateGenresTable.Designer.cs">
+      <DependentUpon>201607031945064_PopulateGenresTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ExternalLoginConfirmationViewModel.cs" />
     <Compile Include="Models\AddPhoneNumberViewModel.cs" />
@@ -319,6 +323,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201607031934037_OverrideConventionsForGigsAndGenres.resx">
       <DependentUpon>201607031934037_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607031945064_PopulateGenresTable.resx">
+      <DependentUpon>201607031945064_PopulateGenresTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
