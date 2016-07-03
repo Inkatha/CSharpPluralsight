@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using Microsoft.AspNet.Identity;
 
-namespace GigHub.Models
+namespace GigHub.ViewModels
 {
     public class IndexViewModel
     {
