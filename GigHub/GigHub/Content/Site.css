@@ -22,3 +22,77 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Bootstrap Overrides */
+
+body {
+    font-size: 17px;
+    font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: Lato,"Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.navbar-inverse {
+  background-color: #FF4342;
+  border-color: #FF4342;
+}
+
+.navbar-inverse .navbar-brand {
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #FFFFFF;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+    background-color: rgb(236, 46, 46);
+}
+
+.dropdown-menu {
+    box-shadow: none;
+    -webkot-box-shadow: none;
+}
+
+.navbar-inverse .navbar-nav > .dropdown > a .caret {
+    border-top-color: #FFF;
+    border-bottom-color: #FFF;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-control {
+    font-size: 17px;
+    padding: 20px 15px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
+
+.form-control:focus {
+    border-color: #2196f3;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.btn {
+    font-size: 17px;
+    padding: 7px 20px;
+    -ms-border-radius: 9px;
+    border-radius: 9px;
+}
