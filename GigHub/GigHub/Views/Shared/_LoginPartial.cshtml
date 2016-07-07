@@ -12,7 +12,7 @@
             <ul class="dropdown-menu">
                 <li><a href="#">Gigs I'm Attending</a></li>
                 <li><a href="#">Artists I'm Following</a></li>
-                <li><a href="#">Manage My Account</a></li>
+                <li>@Html.ActionLink("Manage My Account", "Index", "Manage", routeValues: null, htmlAttributes: new { id = "manageLink" })</li>
                 <li role="separator" class="divider"></li>
                 <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
             </ul>
