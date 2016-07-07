@@ -95,4 +95,11 @@ h6,
     padding: 7px 20px;
     -ms-border-radius: 9px;
     border-radius: 9px;
+    display: compact;
+}
+
+.field-validation-error {
+    color: rgb(236, 46, 46);
+    font-weight: bold;
+    font-size: 14px;
 }
