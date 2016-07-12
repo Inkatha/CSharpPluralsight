@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataStructures", "DataStructures\DataStructures.csproj", "{6584FEE4-E625-4C29-ADD7-70C213347DA6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BinaryTree", "BinaryTree", "{08F6C40B-780D-45D2-BC8C-F49443AD232A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Queue", "Queue", "{D5CCF9BE-D6D7-4113-86D2-3007B514AF23}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Stack", "Stack", "{4F53955F-FEB6-47E3-A7BD-D9658D8C8DF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stack", "Stack\Stack.csproj", "{CF7A0D7D-49A3-4F22-821E-88326762FAA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6584FEE4-E625-4C29-ADD7-70C213347DA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6584FEE4-E625-4C29-ADD7-70C213347DA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6584FEE4-E625-4C29-ADD7-70C213347DA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6584FEE4-E625-4C29-ADD7-70C213347DA6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF7A0D7D-49A3-4F22-821E-88326762FAA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF7A0D7D-49A3-4F22-821E-88326762FAA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF7A0D7D-49A3-4F22-821E-88326762FAA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF7A0D7D-49A3-4F22-821E-88326762FAA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CF7A0D7D-49A3-4F22-821E-88326762FAA1} = {4F53955F-FEB6-47E3-A7BD-D9658D8C8DF0}
+	EndGlobalSection
+EndGlobal
