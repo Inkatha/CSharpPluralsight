@@ -135,25 +135,212 @@ namespace BinaryTree
             // Case 1: If the current has no right child, then current's left replaces current
             if (current.Right == null)
             {
-                _head = current.Left;
+                if (parent == null)
+                {
+                    _head = current.Left;
+                }
+                else
+                {
+                    int result = parent.CompareTo(current.Value);
+                    if (result > 0)
+                    {
+                        // if the parent value is greater than the current value
+                        // make the current left child a left child of parent.
+                        parent.Left = current.Left;
+                    }
+                    else if (result < 0)
+                    {
+                        // If parent value is less than current value
+                        // make the current left child a right child of parent.
+                        parent.Right = current.Left;
+                    }
+                }
             }
+            // Case 2: If current's right child has no left child, then current's right child replaces current
+            else if (current.Right.Left == null)
+            {
+                current.Right.Left = current.Left;
+
+                if (parent == null)
+                {
+                    _head = current.Right;
+                }
+                else
+                {
+                    int result = parent.CompareTo(current.Value);
+                    if (result > 0)
+                    {
+                        // if parent value is greater than current value
+                        // make the current right child a left child of parent
+                        parent.Left = current.Right;
+                    }
+                    else if (result < 0)
+                    {
+                        // if the parent value is less than current value
+                        // make the current right child a right child of parent
+                        parent.Right = current.Right;
+                    }
+                }
+            }
+            // Case 3: If current's right child has a left child, 
+            // replace current with current's right child's left most-most child
             else
             {
-                int result = parent.CompareTo(current.Value);
-                if (result > 0)
-                {
-                    // if parent value is greater than current value
-                    // make the current left child a left child of parent
-                    parent.Left = current.Left;
-                }
-                else if (result < 0)
-                {
+                // find the right's left-most child
+                BinaryTreeNode<T> leftMost = current.Right.Left;
+                BinaryTreeNode<T> leftMostParent = current.Right;
 
+                while (leftMost.Left != null)
+                {
+                    leftMostParent = leftMost;
+                    leftMost = leftMost.Left;
+                }
+                // the parent's left subtree becomes the leftMost's right subtree
+                leftMostParent.Left = leftMost.Right;
+
+                // Assign leftMost's left and right to current's left and right children
+                leftMost.Left = current.Left;
+                leftMost.Right = current.Right;
+
+                if (parent == null)
+                {
+                    _head = leftMost;
+                }
+                else
+                {
+                    int result = parent.CompareTo(current.Value);
+                    if (result > 0)
+                    {
+                        // If parent value si greater than current value
+                        // make leftMost the parent's left child
+                        parent.Left = leftMost;
+                    }
+                    else if (result < 0)
+                    {
+                        // If parent value is less than current vlaue
+                        // make leftMost the parent's right child
+                        parent.Right = leftMost;
+                    }
+                }
+            }
+            return true;
+        }
+        #endregion
+
+        #region Pre-Order Traversal
+        /// <summary>
+        /// Performs the provided action on each binary tree value in pre-order traversal order.
+        /// </summary>
+        /// <param name="action">the action to perform</param>
+        public void PreOrderTraversal(Action<T> action)
+        {
+            PreOrderTraversal(action, _head);
+        }
+
+        private void PreOrderTraversal(Action<T> action, BinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                action(node.Value);
+                PreOrderTraversal(action, node.Left);
+                PreOrderTraversal(action, node.Right);
+            }
+        }
+        #endregion
+
+        #region In-Order Traversal
+        /// <summary>
+        /// Performs the provided action on each binary tree value in In-Order Traversal order.
+        /// </summary>
+        /// <param name="action">the action to perform</param>
+        public void InOrderTraversal(Action<T> action)
+        {
+            InOrderTraversal(action, _head);
+        }
+        private void InOrderTraversal(Action<T> action, BinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                InOrderTraversal(action, node.Left);
+                action(node.Value);
+                InOrderTraversal(action, node.Right);
+            }
+        }
+        #endregion
+
+        #region Post-Order Traversal
+        /// <summary>
+        /// Performs the provided action on each binary tree value in Post-Order Traversal order.
+        /// </summary>
+        /// <param name="action">the action to perform</param>
+        public void PostOrderTraversal(Action<T> action)
+        {
+            PostOrderTraversal(action, _head);
+        }
+        public void PostOrderTraversal(Action<T> action, BinaryTreeNode<T> node)
+        {
+            if (node != null)
+            {
+                PostOrderTraversal(action, node.Left);
+                PostOrderTraversal(action, node.Right);
+                action(node.Value);
+            }
+        }
+        #endregion
+
+        public IEnumerator<T> InOrderTraversal()
+        {
+            // This is a non-recusive algorithm using a stack to demonstrate removing
+            // recusion to make using the yield syntax easier
+            if (_head != null)
+            {
+                // Store the nodes we've skipped in this stack (avoids recursion)
+                var stack = new Stack<BinaryTreeNode<T>>();
+
+                BinaryTreeNode<T> current = _head;
+
+                // When removing recursion we need to keep track of whether or not
+                // we should be going to the left node or the right nodes next.
+                bool goLeftNext = true;
+
+                // Start by pushing head onto the stack
+                stack.Push(current);
+
+                while (stack.Count > 0)
+                {
+                    //Were heading left...
+                    if (goLeftNext)
+                    {
+                        // Push everything but the left-mdoe node to the stack
+                        // We'll yeild the left-most after this block
+                        while (current.Left != null)
+                        {
+                            stack.Push(current);
+                            current = current.Left;
+                        }
+                    }
+
+                    // in-order is left->yield->right
+                    yield return current.Value;
+
+                    if (current.Right != null)
+                    {
+                        current = current.Right;
+
+                        // Once we've right right once, we need to start going left again.
+                        goLeftNext = true;
+                    }
+                    else
+                    {
+                        // If we can't go right then we need to pop off the parent node
+                        // so we can process it and then go to ti's right node
+                        current = stack.Pop();
+                        goLeftNext = false;
+                    }
                 }
             }
         }
 
-        #endregion
         public IEnumerator<T> GetEnumerator()
         {
             throw new NotImplementedException();
