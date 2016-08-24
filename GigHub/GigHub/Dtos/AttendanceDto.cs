@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace GigHub.Dtos
+﻿namespace GigHub.Dtos
 {
     public class AttendanceDto
     {
-        public int GigId { get; set; }
+        public int GigId { get; set; }    
     }
 }
