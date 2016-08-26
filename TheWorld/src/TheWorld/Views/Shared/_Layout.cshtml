@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <title>The World</title>
+    <title>The World - @ViewBag.Title</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/site.css" />
 
@@ -22,22 +22,7 @@
             <div>
                 <button id="sideBarToggle">Hide Sidebar</button>
             </div>
-            <h1>The World</h1>
-            <p>This will be a fun website soon!</p>
-
-            <form>
-                <div>
-                    <label>Date</label>
-                    <input />
-                </div>
-                <div>
-                    <label>Location</label>
-                    <input />
-                </div>
-                <div>
-                    <input value="Add" type="submit" />
-                </div>
-            </form>
+            @RenderBody()
         </div>
 
         <div id="footer">
