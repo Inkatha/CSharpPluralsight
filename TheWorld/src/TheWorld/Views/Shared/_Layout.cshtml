@@ -3,17 +3,17 @@
 <head>
     <title>The World - @ViewBag.Title</title>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="css/site.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
 
 </head>
 <body>
     <div id="sidebar">
-        <img src="images/user1.jpg" atl="headshot" class="headshot" />
+        <img src="~/images/user1.jpg" atl="headshot" class="headshot" />
         <span id="username">Sam Hastings</span>
         <ul class="menu">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li class="active"><a asp-controller="App" asp-action="Index">Home</a></li>
+            <li><a asp-controller="App" asp-action="About">About</a></li>
+            <li><a asp-controller="App" asp-action="Contact">Contact</a></li>
         </ul>
     </div>
 
@@ -30,8 +30,10 @@
         </div>
     </div>
 
-    <script type="text/javascript" src="lib/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="javascript/site.js"></script>
+    <script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+    @RenderSection("scripts", false)
+    
+    <script type="text/javascript" src="~/javascript/site.js"></script>
 
 </body>
 </html>
