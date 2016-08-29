@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Routing;
 using TheWorld.Services;
 using Microsoft.Extensions.Configuration;
+using TheWorld.Models;
 
 namespace TheWorld
 {
@@ -44,6 +45,8 @@ namespace TheWorld
             {
                 // Implement a real service
             }
+
+            services.AddDbContext<WorldContext>();
             services.AddMvc();
         }
 
