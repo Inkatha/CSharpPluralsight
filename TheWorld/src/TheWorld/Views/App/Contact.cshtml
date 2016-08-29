@@ -8,27 +8,37 @@
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 }
 
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+        <h2>Contact Me!</h2>
+        <form method="post">
+            <span asp-validation-summary="ModelOnly"></span>
+            @if (ViewBag.UserMessage != null)
+            {
+                <div>@ViewBag.UserMessage</div>
+            }
+            <div class="form-group">
+                <label asp-for="Name">Name</label>
+                <input class="form-control" asp-for="Name" />
+                <span asp-validation-for="Name" class="text-muted"></span>
+            </div>
 
-<h2>Contact Me!</h2>
-<form method="post">
-    <span asp-validation-summary="ModelOnly"></span>
-    @if (ViewBag.UserMessage != null)
-    {
-        <div>@ViewBag.UserMessage</div>
-    }
-    <label asp-for="Name">Name</label>
-    <input asp-for="Name"/>
-    <span asp-validation-for="Name"></span>
+            <div class="form-group">
+                <label asp-for="Email">Email</label>
+                <input class="form-control" type="Email" asp-for="Email" />
+                <span asp-validation-for="Email" class="text-muted"></span>
+            </div>
 
-    <label asp-for="Email">Email</label>
-    <input type="Email" asp-for="Email"/>
-    <span asp-validation-for="Email"></span>
+            <div class="form-group">
+                <label  asp-for="Message">Message</label>
+                <textarea class="form-control" cols="40" rows="4" asp-for="Message"></textarea>
+                <span asp-validation-for="Message" class="text-muted"></span>
+            </div>
 
-    <label asp-for="Message">Message</label>
-    <textarea cols="40" rows="4" asp-for="Message"></textarea>
-    <span asp-validation-for="Message"></span>
-
-    <div>
-        <input type="submit" value="Send Message" />
+            <div class="form-group">
+                <a asp-controller="App" asp-action="Index" class="btn btn-default">Cancel</a>
+                <input class="btn btn-primary" type="submit" value="Send Message" />
+            </div>
+        </form>
     </div>
-</form>
+</div>
