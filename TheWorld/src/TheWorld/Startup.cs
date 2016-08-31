@@ -15,6 +15,7 @@ using Newtonsoft.Json.Serialization;
 using AutoMapper;
 using TheWorld.ViewsModels;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TheWorld
 {
@@ -65,8 +66,14 @@ namespace TheWorld
             services.AddTransient<WorldContextSeedData>();
             services.AddTransient<GeoCoordsService>();
 
-            services.AddMvc()
-                .AddJsonOptions(config => 
+            services.AddMvc(config =>
+            {
+                if (_env.IsEnvironment("Production"))
+                {
+                    config.Filters.Add(new RequireHttpsAttribute());
+                }
+            })
+            .AddJsonOptions(config =>
                 {
                     config.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                 });
@@ -75,8 +82,8 @@ namespace TheWorld
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, 
-            IHostingEnvironment env, 
+        public void Configure(IApplicationBuilder app,
+            IHostingEnvironment env,
             ILoggerFactory loggerFactory,
             WorldContextSeedData seeder)
         {
