@@ -13,6 +13,10 @@ namespace TheWorld.ViewsModels
         [StringLength(100, MinimumLength = 4)]
         public string Name { get; set; }
 
+        public string UserName { get; set; }
+
         public DateTime DateCreated { get; set; } = DateTime.UtcNow;
+
+       
     }
 }
