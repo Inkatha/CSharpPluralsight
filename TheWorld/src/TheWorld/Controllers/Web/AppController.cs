@@ -40,16 +40,7 @@ namespace TheWorld.Controllers.Web
         [Authorize]
         public IActionResult Trips()
         {
-            try
-            {
-                var data = _repository.GetAllTrips();
-                return View(data);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError($"Failed to get trips in Index page: {ex.Message }");
-                return Redirect("/error");
-            }
+            return View();
         }
 
         public IActionResult Contact()
@@ -60,11 +51,6 @@ namespace TheWorld.Controllers.Web
         [HttpPost]
         public IActionResult Contact(ContactViewModel model)
         {
-            if (model.Email.Contains("aol.com"))
-            {
-                ModelState.AddModelError("", "We don't support AOL addresses.");
-            }
-
             if (ModelState.IsValid)
             {
                 _mailService.SendMail(_config["MailSettings:ToAddress"], model.Email, "TheWorld", model.Message);
