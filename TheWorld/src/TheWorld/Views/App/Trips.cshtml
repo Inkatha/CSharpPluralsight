@@ -1,41 +1,31 @@
-﻿@model IEnumerable<TheWorld.Models.Trip>
-@{
+﻿@{
     ViewBag.Title = "Home Page";
 }
 @section Scripts {
+    <script src="~/lib/underscore/underscore-min.js"></script>
     <script src="~/lib/angular/angular.min.js"></script>
     <script src="~/lib/angular-route/angular-route.min.js"></script>
-    <script src="~/javascript/simpleControls.js"></script>
-    <script src="~/javascript/app-trips.js"></script>
-    <script src="~/javascript/tripsController.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTZT9Zvil6RbPyc_bAH6BWICcXG4daHcg"></script>
+    <script src="~/lib/gmaps/gmaps.min.js"></script>
+    <script src="~/lib/travelmap/travelmap.min.js"></script>
+
+    <environment names="Development">
+        <script src="~/javascript/simpleControls.js"></script>
+        <script src="~/javascript/app-trips.js"></script>
+        <script src="~/javascript/tripsController.js"></script>
+        <script src="~/javascript/tripEditorController.js"></script>
+    </environment>
+
+    <environment names="Production,Staging">
+        <script src="~/lib/_app/simpleControls.js"></script>
+        <script src="~/lib/_app/app-trips.js"></script>
+        <script src="~/lib/_app/tripsController.js"></script>
+        <script src="~/lib/_app/tripEditorController.js"></script>
+    </environment>
 }
 
 <div class="row" ng-app="app-trips">
 
     <div ng-view></div>
 
-    <div class="col-md-6 col-xs-8">
-        <form>
-            <div class="form-group">
-                <label>Date</label>
-                <input class="form-control" />
-            </div>
-            <div class="form-group">
-                <label>Location</label>
-                <input class="form-control" />
-            </div>
-            <div class="form-group">
-                <input class="btn btn-primary" value="Add" type="submit" />
-            </div>
-        </form>
-    </div>
-    <div class="col-md-6 col-xs-4">
-        <h2>The Map</h2>
-        @foreach (var item in Model)
-        {
-            <ul>
-                <li>@item.Name : @item.DateCreated.ToString("d")</li>
-            </ul>
-        }
-    </div>
 </div>

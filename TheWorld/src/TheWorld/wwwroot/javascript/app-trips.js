@@ -4,12 +4,20 @@
     "use strict";
 
     // Creating the module.
-    angular.module("app-trips", ["simpleControls", "ngRoute"]).config(function ($routeProvider) {
+    angular.module("app-trips", ["simpleControls", "ngRoute"])
+        .config(function ($routeProvider) {
             $routeProvider.when("/", {
                 controller: "tripsController",
                 controllerAs: "viewModel",
                 templateUrl: "/views/tripsView.html"
             });
-            $routeProvider.otherWise({ redirectTo: "/"});
+
+            $routeProvider.when("/editor/:tripName", {
+                controller: "tripEditorController",
+                controllerAs: "viewModel",
+                templateUrl: "/views/tripEditorView.html"
+            });
+
+            $routeProvider.otherwise({ redirectTo: "/" });
         });
 })();

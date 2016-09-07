@@ -104,6 +104,28 @@ namespace TheWorld
             ILoggerFactory loggerFactory,
             WorldContextSeedData seeder)
         {
+
+            if (env.IsDevelopment())
+            {
+                loggerFactory.AddDebug(LogLevel.Information);
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                loggerFactory.AddDebug(LogLevel.Debug);
+            }
+
+            app.UseStaticFiles();
+            app.UseIdentity();
+            app.UseMvc(config =>
+            {
+                config.MapRoute(
+                    name: "Default",
+                    template: "{controller}/{action}/{id?}",
+                    defaults: new { controller = "App", action = "Index" }
+                    );
+            });
+
             Mapper.Initialize(config =>
             {
                 config.CreateMap<TripViewModel, Trip>().ReverseMap();
@@ -120,16 +142,7 @@ namespace TheWorld
                 loggerFactory.AddDebug(LogLevel.Error);
             }
 
-            app.UseStaticFiles();
-            app.UseIdentity();
-            app.UseMvc(config =>
-            {
-                config.MapRoute(
-                    name: "Default",
-                    template: "{controller}/{action}/{id?}",
-                    defaults: new { controller = "App", action = "Index" }
-                    );
-            });
+            
             seeder.EnsureSeedData().Wait();
         }
     }
