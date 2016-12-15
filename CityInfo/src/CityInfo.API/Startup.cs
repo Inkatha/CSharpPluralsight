@@ -23,6 +23,9 @@ namespace CityInfo.API
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 		{
 			loggerFactory.AddConsole();
+			loggerFactory.AddDebug(LogLevel.Information);
+
+			loggerFactory.AddNLog();
 
 			if (env.IsDevelopment())
 			{
