@@ -1,9 +1,8 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 namespace CityInfo.API.Services
 {
-	public class LocalMailService : IMailService
+	public class CloudMailService : IMailService
 	{
 		public string _mailTo = "admin@mycompany.com";
 		public string _mailFrom = "noreply@mycompany.com";

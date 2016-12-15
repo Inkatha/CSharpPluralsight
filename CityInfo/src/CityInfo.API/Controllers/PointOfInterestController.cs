@@ -14,7 +14,7 @@ namespace CityInfo.API.Controllers
 	public class PointOfInterestController : Controller
 	{
 		private ILogger<PointOfInterestController> _logger;
-		private LocalMailService _mailService;
+		private IMailService _mailService;
 
 		public PointOfInterestController(ILogger<PointOfInterestController> logger,
 			LocalMailService mailService)
