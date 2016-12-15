@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using NLog.Extensions.Logging;
+using CityInfo.API.Services;
 
 namespace CityInfo.API
 {
@@ -17,6 +19,8 @@ namespace CityInfo.API
 				o.OutputFormatters.Add(
 					new XmlDataContractSerializerOutputFormatter())
 			);
+
+			services.AddTransient<LocalMailService>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
