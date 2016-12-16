@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using CityInfo.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
@@ -17,7 +15,7 @@ namespace CityInfo.API.Controllers
 		private IMailService _mailService;
 
 		public PointOfInterestController(ILogger<PointOfInterestController> logger,
-			LocalMailService mailService)
+			IMailService mailService)
 		{
 			_logger = logger;
 			_mailService = mailService;
