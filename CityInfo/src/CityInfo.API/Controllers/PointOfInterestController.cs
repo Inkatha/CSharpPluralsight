@@ -218,5 +218,3 @@ namespace CityInfo.API.Controllers
 		}
 	}
 }
-
-
