@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace CityInfo.API.Migrations
 {
-    public partial class InitialDatabaseMigration : Migration
+    public partial class AddDescriptionToPointOfInterest : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -30,6 +30,7 @@ namespace CityInfo.API.Migrations
                     Id = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     CityId = table.Column<int>(nullable: false),
+                    Description = table.Column<string>(maxLength: 200, nullable: true),
                     Name = table.Column<string>(maxLength: 50, nullable: false)
                 },
                 constraints: table =>

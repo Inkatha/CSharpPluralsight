@@ -5,6 +5,7 @@ using CityInfo.API.Models;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.Extensions.Logging;
 using CityInfo.API.Services;
+using CityInfo.API.Entities;
 
 namespace CityInfo.API.Controllers
 {
@@ -13,12 +14,14 @@ namespace CityInfo.API.Controllers
 	{
 		private ILogger<PointOfInterestController> _logger;
 		private IMailService _mailService;
+		private CityInfoContext _context;
 
 		public PointOfInterestController(ILogger<PointOfInterestController> logger,
-			IMailService mailService)
+			IMailService mailService, CityInfoContext context)
 		{
 			_logger = logger;
 			_mailService = mailService;
+			_context = context;
 		}
 
 		[HttpGet("{cityId}/pointsofinterest")]
@@ -42,26 +45,6 @@ namespace CityInfo.API.Controllers
 			}
 		}
 
-		[HttpGet("{cityId}/pointsofinterest/{id}")]
-		public IActionResult GetPointOfInterest(int cityId, int id)
-		{
-			var city = CityDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
-
-			if (city == null)
-			{
-				return NotFound();
-			}
-
-			var pointOfInterest = city.PointsOfInterest.FirstOrDefault(p => p.Id == id);
-
-			if (pointOfInterest == null)
-			{
-				return NotFound();
-			}
-
-			return Ok(pointOfInterest);
-		}
-
 		[HttpPost("{cityId}/pointsofinterest")]
 		public IActionResult CreatePointOfInterest(int cityId, [FromBody] PointOfInterestForCreationDto pointOfInterest)
 		{
@@ -70,7 +53,7 @@ namespace CityInfo.API.Controllers
 				return BadRequest();
 			}
 
-			if (pointOfInterest.Description.Equals(pointOfInterest.Description, StringComparison.OrdinalIgnoreCase))
+			if (pointOfInterest.Name.Equals(pointOfInterest.Description, StringComparison.OrdinalIgnoreCase))
 			{
 				ModelState.AddModelError("Description", "The provided description should be different from the name.");
 			}
@@ -97,6 +80,26 @@ namespace CityInfo.API.Controllers
 			};
 
 			return Ok();
+		}
+
+		[HttpGet("{cityId}/pointsofinterest/{id}")]
+		public IActionResult GetPointOfInterest(int cityId, int id)
+		{
+			var city = CityDataStore.Current.Cities.FirstOrDefault(c => c.Id == cityId);
+
+			if (city == null)
+			{
+				return NotFound();
+			}
+
+			var pointOfInterest = city.PointsOfInterest.FirstOrDefault(p => p.Id == id);
+
+			if (pointOfInterest == null)
+			{
+				return NotFound();
+			}
+
+			return Ok(pointOfInterest);
 		}
 
 		[HttpPut("{cityId}/pointsofinterest/{id}")]
