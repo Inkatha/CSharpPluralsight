@@ -75,6 +75,9 @@ namespace CityInfo.API
 				config.CreateMap<Entities.City,						 Models.CityWithoutPointOfInterestDto>();
 				config.CreateMap<Entities.City,						 Models.CityDto>();
 				config.CreateMap<Entities.PointOfInterest, Models.PointOfInterestDto>();
+				config.CreateMap<Models.PointOfInterestForCreationDto, Entities.PointOfInterest>();
+				config.CreateMap<Models.PointOfInterestForUpdateDto, Entities.PointOfInterest>();
+				config.CreateMap<Entities.PointOfInterest, Models.PointOfInterestForUpdateDto>();
 			});
 
 			app.UseMvc();
