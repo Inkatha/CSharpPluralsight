@@ -28,5 +28,6 @@ namespace DemoCode.Tests.MiddlewareTests
 
             Assert.True(sut.IsNoob);
         }
+
     }
 }

@@ -1,3 +1,5 @@
+using System;
+
 namespace DemoCode.Middleware
 {
     public class Calculator
@@ -14,7 +16,12 @@ namespace DemoCode.Middleware
 
         public int Divide(int value, int divideBy)
         {
-            return (value / divideBy);
+            if (value > 200)
+            {
+                throw new ArgumentOutOfRangeException("value");
+            }
+
+            return value / divideBy;
         }
     }
 }

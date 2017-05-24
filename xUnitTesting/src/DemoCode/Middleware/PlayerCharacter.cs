@@ -37,7 +37,22 @@ namespace DemoCode.Middleware
 
         private void CreateStartingWeapons()
         {
-            
+            Weapons = new List<string>()
+            {
+                "Long Bow",
+                "Short Bow",
+                "Short Sword",
+                //"Staff of Wonder"
+            };
+        }
+        
+        public void Sleep()
+        {
+            var rnd = new Random();
+
+            var healthIncrease = rnd.Next(1, 101);
+
+            Health += healthIncrease;
         }
     }
 }
